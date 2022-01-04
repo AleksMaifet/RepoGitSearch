@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/RepoGitSearch/static/css/main.77d6025f.css",
+    "main.js": "/RepoGitSearch/static/js/main.bde4c5e3.js",
+    "static/media/Git_logo.svg": "/RepoGitSearch/static/media/Git_logo.1ee5d17ed4c57bd108a057783e8b165a.svg",
+    "static/media/Followers.svg": "/RepoGitSearch/static/media/Followers.fdce70b4d370c3a2740983e9cacf030c.svg",
+    "static/media/EmptySquare.svg": "/RepoGitSearch/static/media/EmptySquare.ae2522580bf55fa6ea58b4d7ae8a6e60.svg",
+    "static/media/Loop.svg": "/RepoGitSearch/static/media/Loop.5d641b04cc9e3677440997256a3821c1.svg",
+    "index.html": "/RepoGitSearch/index.html",
+    "static/media/Users.svg": "/RepoGitSearch/static/media/Users.8fe7b3bb405afa93a396091fe2205290.svg",
+    "static/media/Follower.svg": "/RepoGitSearch/static/media/Follower.75086d110a8e1df5daec7f33dacd90e7.svg",
+    "main.77d6025f.css.map": "/RepoGitSearch/static/css/main.77d6025f.css.map",
+    "main.bde4c5e3.js.map": "/RepoGitSearch/static/js/main.bde4c5e3.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.77d6025f.css",
+    "static/js/main.bde4c5e3.js"
+  ]
+}
