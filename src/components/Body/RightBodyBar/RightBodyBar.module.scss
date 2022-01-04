@@ -1,0 +1,19 @@
+@import 'src/styles/scss/mixins';
+@import 'src/styles/scss/variables';
+
+.repositoriesTitle {
+  @include title(32px);
+  margin-bottom: 29px;
+}
+.repositoriesTextWrapper {
+  width: 877px;
+  height: 112px;
+  padding: 24px 32px;
+  .repositoriesText {
+    @include text(24px,29px,$bgColor);
+    margin-bottom: 16px;
+  }
+  .repositoriesPreText {
+    @include text(16px,19px,$textColor);
+  }
+}

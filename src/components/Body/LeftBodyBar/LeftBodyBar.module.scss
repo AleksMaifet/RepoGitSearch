@@ -1,0 +1,36 @@
+@import 'src/styles/scss/mixins';
+
+
+.leftBody {
+  margin: 0 95px 0 57px;
+
+  .imageWrapper {
+    @include imageWrraper(280px,280px);
+  }
+
+  .title {
+    @include title(26px)
+  }
+
+  .text {
+    @include text(18px, 22px, $bgColor);
+    margin: 12px 0 25px;
+  }
+
+  .followerBlock {
+    display: flex;
+
+    .follower {
+      @include text(16px, 150%, $textColor);
+      .followerWrapper {
+        margin: 0 15px;
+        width: 150px;
+      }
+    }
+  }
+}
+
+
+
+
+

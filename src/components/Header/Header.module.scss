@@ -1,0 +1,29 @@
+@import 'src/styles/scss/variables';
+@import 'src/styles/scss/mixins';
+
+
+.gitHeader {
+  background-color: $bgColor;
+  height: 72px;
+
+  .gitBlock {
+    display: flex;
+    align-items: center;
+    @include container();
+
+    .gitLogoWrapper {
+      height: 41px;
+      width: 40px;
+      background-color: $bgColor;
+    }
+
+    .gitLogoWrapper:hover {
+      opacity: 0.6;
+      cursor: pointer;
+    }
+
+    .gitSearchWrapper {
+      margin-left: 23px;
+    }
+  }
+}

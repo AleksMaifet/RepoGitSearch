@@ -1,0 +1,11 @@
+@import 'src/styles/scss/mixins';
+
+
+.RepositoriesContainer {
+  @include container();
+
+  .RepositoriesBody {
+    display: flex;
+    margin-top: 30px;
+  }
+}

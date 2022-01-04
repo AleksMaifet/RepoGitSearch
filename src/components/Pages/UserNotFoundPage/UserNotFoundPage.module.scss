@@ -1,0 +1,19 @@
+@import '../../../styles/scss/mixins';
+
+
+.foundBlock {
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .imageWrapper {
+    @include imageWrraper(100px, 100px);
+  }
+  .foundBlockText {
+    @include text(22px,140%,#808080);
+    height: 62px;
+    text-align: center;
+    margin-top: 46px;
+  }
+}

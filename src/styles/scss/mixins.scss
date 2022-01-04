@@ -1,0 +1,29 @@
+@import 'src/styles/scss/variables';
+
+@mixin container(){
+  width: 100%;
+  height: 100%;
+  max-width: 1366px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+@mixin text($fontSize,$lineHeight,$textColor){
+  font-size: $fontSize;
+  line-height: $lineHeight;
+  display: flex;
+  align-items: normal;
+  letter-spacing: 0.01em;
+  color: $textColor;
+}
+@mixin title($fontSize) {
+  font-weight: 600;
+  font-size: $fontSize;
+  line-height: 130%;
+  color:$textColor ;
+}
+@mixin imageWrraper($width,$height){
+  width: $width;
+  height: $height;
+  margin: 0 auto;
+  overflow: hidden;
+}
