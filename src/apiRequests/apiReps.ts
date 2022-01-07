@@ -1,6 +1,5 @@
 import axios from "axios";
 
-// created_at: "2021-05-17T19:48:02Z"
 
 export type UserType = {
 	avatar_url: string

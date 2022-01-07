@@ -12,8 +12,9 @@ export const SearchComponent = () => {
 	const [valueSearch,setValueSearch] = useState<string>('')
 
 
+
 	useEffect(() => {
-		setValueSearch(searchValue)
+			searchValue.length ? setValueSearch(searchValue) : setValueSearch('')
 	}, [searchValue])
 
 
