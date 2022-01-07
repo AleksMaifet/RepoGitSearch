@@ -11,12 +11,9 @@ export const SearchComponent = () => {
 
 	const [valueSearch,setValueSearch] = useState<string>('')
 
-
-
 	useEffect(() => {
-			searchValue.length ? setValueSearch(searchValue) : setValueSearch('')
+			searchValue ? setValueSearch(searchValue) : setValueSearch('')
 	}, [searchValue])
-
 
 	const enterValueSearch = () => {
 		navigate(`user/${valueSearch}`)
