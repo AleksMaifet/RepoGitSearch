@@ -1,14 +1,13 @@
 import React, {useEffect} from "react";
-import {LeftBodyBar} from "components";
-import {RightBodyBar} from "components";
+import {CircularIndeterminate, LeftBodyBar, RightBodyBar} from "components";
 import style from "./Body.module.scss"
 import {useParams} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
-import {getUserTC} from "reducers/appReducer";
-import {getPage} from "store/selectors";
-import {CircularIndeterminate} from "components";
+
+import {getApp, getPage} from "store/selectors";
 import {UserNotFoundPage} from "components/Pages/UserNotFoundPage/UserNotFoundPage";
-import {getApp} from "store/selectors";
+import {getUserRepo, getUserSage} from "reducers/sagaActions";
+
 
 export const RepositoriesBody = () => {
 	const dispatch = useDispatch()
@@ -21,14 +20,17 @@ export const RepositoriesBody = () => {
 
 
 	useEffect(() => {
-		userName && dispatch(getUserTC(userName))
-	}, [dispatch, page, userName])
+		userName && dispatch(getUserSage(userName))
+	}, [dispatch, userName])
 
+	useEffect(() => {
+		userName && dispatch(getUserRepo(userName, page))
+	}, [dispatch, page, userName])
 
 	if (isLoad === "loading") {
 		return <CircularIndeterminate/>
 	}
-	if(!isFound) return <UserNotFoundPage/>
+	if (!isFound) return <UserNotFoundPage/>
 
 
 	return (

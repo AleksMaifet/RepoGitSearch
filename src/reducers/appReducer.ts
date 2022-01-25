@@ -1,17 +1,16 @@
-import {apiUsers, RepositoryType, UserType} from "apiRequests/apiReps";
-import {ThunkDispatch} from "redux-thunk";
-import {AppStoreType} from "store/store";
+import {RepositoryType, UserType} from "apiRequests/apiReps";
 import {IsLoadType} from "types/type";
 
-type initStateType = typeof initState
+
+export type initStateType = typeof initState
 
 const initState = {
 	user: {} as UserType,
-	repository:[] as RepositoryType[],
-	isLoad:'idle' as IsLoadType,
-	isFoundUser:true,
-	page:1,
-	per_page:4,
+	repository: [] as RepositoryType[],
+	isLoad: 'idle' as IsLoadType,
+	isFoundUser: true,
+	page: 1,
+	per_page: 4,
 }
 
 export const appReducer = (state = initState, action: AppActionHandlerType): initStateType => {
@@ -19,7 +18,7 @@ export const appReducer = (state = initState, action: AppActionHandlerType): ini
 		case "GET-USER":
 			return {
 				...state,
-				user:action.user
+				user: action.user
 			}
 		case "GET-USER-REPO":
 			return {
@@ -40,95 +39,56 @@ export const appReducer = (state = initState, action: AppActionHandlerType): ini
 }
 
 type AppActionHandlerType =
-		ReturnType<typeof getUserAC>
+	ReturnType<typeof getUserAC>
 	| ReturnType<typeof getUserRepoAC>
 	| ReturnType<typeof setSearchValueAC>
 	| ReturnType<typeof isLoadingAC>
 	| ReturnType<typeof isFoundUserAC>
 	| ReturnType<typeof setNewPageAC>
 
-export const getUserAC = (user:UserType) => {
+export const getUserAC = (user: UserType) => {
 	return {
-		type:"GET-USER",
-			user,
+		type: "GET-USER",
+		user,
 	} as const
 }
-export const getUserRepoAC = (repository:RepositoryType []) => {
+export const getUserRepoAC = (repository: RepositoryType []) => {
 	return {
-		type:"GET-USER-REPO",
+		type: "GET-USER-REPO",
 		repository,
 	} as const
 }
-export const setSearchValueAC = (userName:string) => {
+export const setSearchValueAC = (userName: string) => {
 	return {
-		type:"SET-SEARCH-VALUE",
-		payload:{
+		type: "SET-SEARCH-VALUE",
+		payload: {
 			userName,
 		},
 	} as const
 }
-export const isLoadingAC = (isLoad:IsLoadType) => {
+export const isLoadingAC = (isLoad: IsLoadType) => {
 	return {
-		type:"IS-LOADING",
-		payload:{
+		type: "IS-LOADING",
+		payload: {
 			isLoad,
 		},
 	} as const
 }
-export const isFoundUserAC = (isFoundUser:boolean) => {
+export const isFoundUserAC = (isFoundUser: boolean) => {
 	return {
-		type:"IS-NOT-FOUND",
-		payload:{
+		type: "IS-NOT-FOUND",
+		payload: {
 			isFoundUser,
 		}
 	} as const
 }
 
-export const setNewPageAC = (page:number) => {
+export const setNewPageAC = (page: number) => {
 	return {
-		type:"SET-NEW-PAGE",
-		payload:{
+		type: "SET-NEW-PAGE",
+		payload: {
 			page,
 		}
 	} as const
 }
 
-export const getUserTC = (userName:string) => {
-	return async (dispatch:ThunkDispatch<AppStoreType,void,AppActionHandlerType>,getState:() => AppStoreType) => {
-		dispatch(isLoadingAC('loading'))
-		dispatch(isFoundUserAC(true))
-		const {page,per_page} = getState().app
-		const params = {
-			userName,
-			page,
-			per_page,
-		}
-		try{
-			const {data} = await apiUsers.getUser(userName)
-			dispatch(getUserAC(data))
-			dispatch(getUserRepoTC(params))
-		}
-		catch (e:any) {
-			dispatch(isFoundUserAC(false))
-		}
-		finally {
-			dispatch(isLoadingAC('success'))
-		}
-	}
-}
-
-export const getUserRepoTC = (params:{
-	userName:string,
-	page:number,
-	per_page:number
-}) => {
-	return async (dispatch:ThunkDispatch<AppStoreType,void,AppActionHandlerType>) => {
-		try{
-			const {data} = await apiUsers.getUserRepo(params)
-			dispatch(getUserRepoAC(data))
-		}
-		catch (e:any) {
-			dispatch(isFoundUserAC(false))
-		}
-	}
-}
